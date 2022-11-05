@@ -1,0 +1,84 @@
+---
+title: "R语言学习笔记"
+author:
+- name: 闫明
+  affiliation: 南京林业大学
+  #url: https://www.wehi.edu.au/people/tony-papenfuss
+date: "19-10-2022"
+output:
+  rmdformats::readthedown:
+    code_folding: hide
+    gallery: yes
+    highlight: tango
+    lightbox: yes
+    self_contained: yes
+    thumbnails: no
+    number_sections: yes
+    toc_depth: 3
+    use_bookdown: yes
+  html_document2:
+    df_print: paged
+  html_document:
+    toc_depth: '3'
+    df_print: paged
+params:
+  update_date: !r paste("Last updated on:", Sys.Date())
+editor_options:
+  chunk_output_type: console
+---
+`r params$update_date`
+
+<style type="text/css">
+h1.title {
+  font-size: 28px;
+  color: DarkRed;
+}
+h1 { /* Header 1 */
+  font-size: 24px;
+  color: DarkBlue;
+}
+h2 { /* Header 2 */
+    font-size: 20px;
+  color: DarkBlue;
+}
+h3 { /* Header 3 */
+    font-size: 18px;
+  color: DarkBlue;
+}
+h4 { /* Header 3 */
+    font-size: 16px;
+  color: DarkBlue;
+}
+</style>
+
+<style>
+p.caption {
+  font-size: 46em;
+  font-style: italic;
+  color: black;
+}
+</style>
+
+
+
+```{r setup, include=F}
+knitr::opts_chunk$set(
+  tidy = FALSE,
+  fig.width = 10,
+  message = FALSE,
+  warning = FALSE)
+```
+
+# 2022年11月6号 R语言里把函数里的对象保存下来
+
+参考链接 https://stackoverflow.com/questions/57760680/r-how-can-i-save-all-objects-within-a-functions-local-environment
+
+```
+testFun <- function(){
+  a = 1
+  b = 2
+  c = 3
+  save(list = ls(all.names = TRUE), file = "environment.RData")
+}
+testFun()
+```

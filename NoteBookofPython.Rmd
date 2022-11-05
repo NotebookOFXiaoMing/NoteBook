@@ -1,0 +1,117 @@
+---
+title: "python学习笔记"
+author:
+- name: 闫明
+  affiliation: 南京林业大学
+  #url: https://www.wehi.edu.au/people/tony-papenfuss
+date: "19-10-2022"
+output:
+  rmdformats::readthedown:
+    code_folding: hide
+    gallery: yes
+    highlight: tango
+    lightbox: yes
+    self_contained: yes
+    thumbnails: no
+    number_sections: yes
+    toc_depth: 3
+    use_bookdown: yes
+  html_document2:
+    df_print: paged
+  html_document:
+    toc_depth: '3'
+    df_print: paged
+params:
+  update_date: !r paste("Last updated on:", Sys.Date())
+editor_options:
+  chunk_output_type: console
+---
+`r params$update_date`
+
+<style type="text/css">
+h1.title {
+  font-size: 28px;
+  color: DarkRed;
+}
+h1 { /* Header 1 */
+  font-size: 24px;
+  color: DarkBlue;
+}
+h2 { /* Header 2 */
+    font-size: 20px;
+  color: DarkBlue;
+}
+h3 { /* Header 3 */
+    font-size: 18px;
+  color: DarkBlue;
+}
+h4 { /* Header 3 */
+    font-size: 16px;
+  color: DarkBlue;
+}
+</style>
+
+<style>
+p.caption {
+  font-size: 46em;
+  font-style: italic;
+  color: black;
+}
+</style>
+
+
+
+```{r setup, include=F}
+knitr::opts_chunk$set(
+  tidy = FALSE,
+  fig.width = 10,
+  message = FALSE,
+  warning = FALSE)
+```
+
+# 2022年11月6号 snakemake配置文件和命令参数
+
+一个简单的snakemake文件用来组装叶绿体基因组
+
+```
+#configfile: "config.yaml"
+
+SRR,FRR = glob_wildcards(config["fq_folder"] + "{srr}_{frr}.fq.gz")
+
+print(SRR)
+print(len(SRR))
+
+rule all:
+    input:
+        expand(config["work_dir"] + "{srr}_cp/get_org.log.txt",srr=SRR)
+
+rule assemble_cp:
+    input:
+        read01 = config["fq_folder"] + "{srr}_1.fq.gz",
+        read02 = config["fq_folder"] + "{srr}_2.fq.gz"
+    output:
+        config["work_dir"] + "{srr}_cp/get_org.log.txt"
+    threads:
+        8
+    params:
+        output_folder = config["work_dir"] + "{srr}_cp"
+    shell:
+        """
+        get_organelle_from_reads.py -1 {input.read01} -2 {input.read02} \
+        -o {params.output_folder} -R 15 -k 85,105 -F embplant_pt -t {threads} \
+        --overwrite
+        """
+```
+
+配置文件 config.yaml
+
+```
+fq_folder: ""
+work_dir: ""
+```
+
+命令行
+
+```
+snakemake -s assembleMitoGenomes.smk --cores 16 --configfile config.yaml --config fq_folder=/mnt/shared/scratch/myan/private/pome_WGS/huoyan_14_variety/ work_dir=/mnt/shared/scratch/myan/private/pome_WGS/organelle_assembly/mitogenome/ -p
+```
