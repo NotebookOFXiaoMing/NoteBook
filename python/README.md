@@ -9,3 +9,8 @@ len(glob.glob("/tmp/dir_*"))
 glob.glob("/tmp/dir_*/*_cp.gbf")
 ```
 
+pip 安装模块指定清华源
+
+```
+pip install bcbio-gff -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
