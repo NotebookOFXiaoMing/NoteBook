@@ -14,3 +14,25 @@ pip 安装模块指定清华源
 ```
 pip install bcbio-gff -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
+
+python 写脚本的时候生成参数
+
+之前自己是使用argparse这个模块，今天看到了一个click模块 链接 https://click.palletsprojects.com/en/8.1.x/
+
+用起来比argparse 这个模块更简单，官方文档上给出的例子
+
+```
+import click
+
+@click.command()
+@click.option('--count', default=1, help='Number of greetings.')
+@click.option('--name', prompt='Your name',
+              help='The person to greet.')
+def hello(count, name):
+    """Simple program that greets NAME for a total of COUNT times."""
+    for x in range(count):
+        click.echo(f"Hello {name}!")
+
+if __name__ == '__main__':
+    hello()
+```
