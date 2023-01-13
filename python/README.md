@@ -36,3 +36,5 @@ def hello(count, name):
 if __name__ == '__main__':
     hello()
 ```
+
+我将这个文件命名为`try_click.py`,如果执行`python try_click.py` 不加参数执行 会让你一行一行输入参数 也可以直接加参数执行  `python .\try_click.py --count 8 --name xiaoming`
