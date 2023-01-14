@@ -62,3 +62,10 @@ snakemake --cluster "sbatch --output=/snakemake_pipeline/slurm.out/%j.out \
 --jobs 12 -s pomeRTD_snakemake_v01.py
 
 ```
+
+mamba 这个软件
+
+```
+mamba repoquery search samtools
+mamba repoquery depends samtools
+```
