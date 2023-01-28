@@ -15,6 +15,14 @@ scp xiaoming@124.70.145.183:/tmp/dir_Gl_VKU_cp/Gl_VKU_cp.tar.gz D:\Bioinformatic
 
 关于slurm集群任务调度系统，参考 https://help.cropdiversity.ac.uk/slurm-overview.html
 
+关于slurm参考链接 
+
+- https://zhuanlan.zhihu.com/p/345387783
+
+- https://docs.hpc.sjtu.edu.cn/job/slurm.html
+
+- http://hmli.ustc.edu.cn/doc/linux/slurm-install/slurm-install.html#id31
+
 查看所有节点的信息 `sinfo -N`
 
 - idle unused 未被使用
