@@ -77,3 +77,5 @@ mamba 这个软件
 mamba repoquery search samtools
 mamba repoquery depends samtools
 ```
+
+mamba 安装软件最开始很顺畅，最近一直会有报错，报错很长，暂时看不懂是什么原因，还是使用回conda, 运行完conda install software会卡很久，查了一下原因，有人说需要对conda进行更新，有人说可以使用离线模式进行安装，首先是到 https://anaconda.org/ 找到对应的安装包，然后使用命令 `conda install --offline fastp-0.23.2-h5f740d0_3.tar.bz2`进行安装，安装成功，但是fastp不能用，报错是 `fastp: error while loading shared libraries: libisal.so.2: cannot open shared object file: No such file or directory`,我猜可能的原因是离线安装，软件的依赖问题不能很好的解决，瞎说的，不确定
