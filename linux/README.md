@@ -71,6 +71,12 @@ snakemake --cluster "sbatch --output=/snakemake_pipeline/slurm.out/%j.out \
 
 ```
 
+查看每个节点的信息 (cpu和内存)
+
+```
+sinfo -o "%n %e %m %a %c %c"
+```
+
 mamba 这个软件
 
 ```
@@ -84,4 +90,10 @@ mamba 安装软件最开始很顺畅，最近一直会有报错，报错很长�
 
 ```
 export PATH=/home/myan/biotools/bamtools/build/src/:$PATH
+```
+
+两台服务器之间拷贝数据
+
+```
+scp username@ipaddress:/home/folder/file.txt /home/folder/
 ```
