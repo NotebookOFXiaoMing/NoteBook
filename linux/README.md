@@ -97,3 +97,5 @@ export PATH=/home/myan/biotools/bamtools/build/src/:$PATH
 ```
 scp username@ipaddress:/home/folder/file.txt /home/folder/
 ```
+
+conda 可用的镜像汇总 https://zhuanlan.zhihu.com/p/584580420
