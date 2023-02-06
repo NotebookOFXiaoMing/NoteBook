@@ -23,6 +23,8 @@ scp xiaoming@124.70.145.183:/tmp/dir_Gl_VKU_cp/Gl_VKU_cp.tar.gz D:\Bioinformatic
 
 - http://hmli.ustc.edu.cn/doc/linux/slurm-install/slurm-install.html#id31
 
+- https://zhuanlan.zhihu.com/p/356415669 这个写的挺详细的
+
 查看所有节点的信息 `sinfo -N`
 
 - idle unused 未被使用
