@@ -79,6 +79,33 @@ snakemake --cluster "sbatch --output=/snakemake_pipeline/slurm.out/%j.out \
 sinfo -o "%n %e %m %a %c %c"
 ```
 
+查看作业信息 参考链接 https://hpc.pku.edu.cn/_book/guide/slurm/sacct.html
+
+```
+scontrol show job
+```
+
+显示正在运行的任务信息
+
+```
+scontrol show job 476717
+```
+加上具体的任务号显示特定的任务
+
+```
+sacct -j 7454119
+```
+输出内容会包括，作业号，作业名，分区，计费账户，申请的CPU数量，状态，结束代码
+
+JobID    JobName  Partition    Account  AllocCPUS      State ExitCode
+最后介绍如何通过sacct按照指定格式输出作业信息；
+
+入下所示，指定输出内容为：作业号，作业名，分区，运行节点，申请核数，状态，作业结束时间；
+```
+format=jobid,jobname,partition,nodelist,alloccpus,state,end
+sacct --format=$format -j 7454119
+```
+
 mamba 这个软件
 
 ```
