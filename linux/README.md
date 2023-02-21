@@ -41,6 +41,12 @@ scp xiaoming@124.70.145.183:/tmp/dir_Gl_VKU_cp/Gl_VKU_cp.tar.gz D:\Bioinformatic
 srun --cpus-per-task=8 --mem=16G --pty bash
 ```
 
+使用指定分区的节点
+
+```
+srun --cpus-per-task=16 --mem=32G --partition=tcum256c128Partition --pty bash
+```
+
 查看自己账号下的运行任务
 
 ```
