@@ -134,3 +134,19 @@ scp username@ipaddress:/home/folder/file.txt /home/folder/
 ```
 
 conda 可用的镜像汇总 https://zhuanlan.zhihu.com/p/584580420
+
+
+查看集群上已经有的公共软件 
+
+```
+module avail
+```
+
+使用集群上的软件 参考链接 https://hpc.pku.edu.cn/_book/guide/soft/module.html
+
+先申请计算资源 srun --cpus-per-task=16 --mem=32G --partition=tcum256c128Partition --pty bash
+module load cactus/2.2.0
+
+然后就可以直接调用这个软件了
+
+module purge 清除软件环境
