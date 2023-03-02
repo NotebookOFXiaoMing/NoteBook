@@ -150,3 +150,5 @@ module load cactus/2.2.0
 然后就可以直接调用这个软件了
 
 module purge 清除软件环境
+
+paste file1.txt file2.txt -d " " -d指定分隔符
