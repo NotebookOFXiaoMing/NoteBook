@@ -112,6 +112,11 @@ format=jobid,jobname,partition,nodelist,alloccpus,state,end
 sacct --format=$format -j 7454119
 ```
 
+```
+sacct -u myan
+```
+会输出过去一天运行任务的状态
+
 mamba 这个软件
 
 ```
